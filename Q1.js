@@ -108,16 +108,7 @@ const input = {
 };
 
 console.log(flattenObject(input));
-/*
-Expected output:
-{
-  "user.info.name": "Alice",
-  "user.info.age": 25,
-  "user.preferences.theme": "dark",
-  "user.preferences.notifications": true,
-  "status": "active"
-}
-*/
+
 
 
 

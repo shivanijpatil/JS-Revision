@@ -1,0 +1,53 @@
+<!-- 2. Event Bubbling
+Task:
+Build a nested DOM structure—such as a <div> containing a <section> containing a <button>—and attach click event listeners at each level. Log different messages from each listener to demonstrate how the event bubbles up from the deepest element to the outermost element.
+
+Example:
+
+<div id="outer">
+  <section id="middle">
+    <button id="inner">Click me</button>
+  </section>
+</div>
+Steps:
+
+Attach click event listeners to #outer, #middle, and #inner.
+Inside each listener, console.log a message indicating which element fired and the current event phase if needed.
+Click the button and observe the order of logs, illustrating the bubbling process.
+Requirements:
+
+Use standard DOM event listeners (e.g., element.addEventListener("click", ...)).
+Demonstrate event bubbling order clearly. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling Example</title>
+  </head>
+  <body>
+    <h1>Event Bubbling Example</h1>
+    <div id="outer" style="padding: 20px; background-color: lightblue">
+      Outer Div
+      <section id="middle" style="padding: 20px; background-color: lightgreen">
+        Middle Section
+        <button id="inner" style="padding: 10px">Click me</button>
+      </section>
+    </div>
+
+    <script>
+      document.getElementById("outer").addEventListener("click", function () {
+        console.log("Outer Div clicked");
+      });
+
+      document.getElementById("middle").addEventListener("click", function () {
+        console.log("Middle Section clicked");
+      });
+
+      document.getElementById("inner").addEventListener("click", function () {
+        console.log("Button clicked");
+      });
+    </script>
+  </body>
+</html>

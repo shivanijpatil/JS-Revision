@@ -32,9 +32,9 @@ function flattenArray(nestedArray, depth = Infinity) {
     return result;
 }
 
-// Test cases
-console.log(flattenArray([1, [2, [3, [4, 5]]]], 2)); // Expected output: [1, 2, 3, [4, 5]]
-console.log(flattenArray([1, [2, [3, [4, 5]]]])); // Expected output: [1, 2, 3, 4, 5]
+
+console.log(flattenArray([1, [2, [3, [4, 5]]]], 2));
+console.log(flattenArray([1, [2, [3, [4, 5]]]]));
 
 // 2. Object Flattening
 // Task:
@@ -93,7 +93,6 @@ function flattenObject(nestedObject) {
     return result;
 }
 
-// Test case
 const input = {
     user: {
         info: {

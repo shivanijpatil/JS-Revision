@@ -1,0 +1,53 @@
+<!-- Q: 2
+1. Event Delegation
+Task:
+Create a simple interactive web page (or a code snippet) that dynamically adds new list items to an unordered list (<ul>). Use event delegation to handle clicks on any list item by attaching a single event listener to the parent <ul> element.
+
+Steps:
+
+Create a <ul> element in the DOM.
+Attach one event listener to the <ul> that listens for click events on its children.
+Dynamically add <li> elements (e.g., via a button click).
+When an <li> is clicked, log the item’s text or perform another action (e.g., highlight, remove, etc.).
+Requirements:
+
+Only one event listener is allowed (on the parent container).
+No individual event listeners on each <li>.
+Demonstrate that newly added <li> elements are automatically handled by the existing event listener. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation Example</title>
+  </head>
+  <body>
+    <h1>Event Delegation Example</h1>
+    <button id="addItemButton">Add Item</button>
+    <ul id="itemList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("addItemButton")
+        .addEventListener("click", function () {
+          const ul = document.getElementById("itemList");
+          const newItem = document.createElement("li");
+          newItem.textContent = `Item ${ul.children.length + 1}`;
+          ul.appendChild(newItem);
+        });
+
+      document
+        .getElementById("itemList")
+        .addEventListener("click", function (event) {
+          if (event.target.tagName === "LI") {
+            console.log(`Clicked on: ${event.target.textContent}`);
+            event.target.style.backgroundColor = "yellow";
+          }
+        });
+    </script>
+  </body>
+</html>
